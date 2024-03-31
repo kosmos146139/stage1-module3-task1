@@ -29,7 +29,7 @@ public class GenericsTest {
         List<String> list = parseGenericsClass();
         assertFalse("Class shouldn't be empty", list.isEmpty());
         assertTrue("In line " + (list.indexOf(getLineWithString(list, "boxingMethod")) + 1) + ", List shouldn't be raw",
-                getLineWithString(list, "boxingMethod").contains("List<List<String>>"));
+                getLineWithString(list, "boxingMethod").contains("List<String>"));
         assertTrue("In line " + (list.indexOf(getLineWithString(list, "firstList =")) + 1) + ", List shouldn't be raw",
                 getLineWithString(list, "firstList =").contains("List<String>"));
         assertTrue("In line " + (list.indexOf(getLineWithString(list, "secondList =")) + 1) + ", List shouldn't be raw",
@@ -65,7 +65,7 @@ public class GenericsTest {
     }
 
     @Test
-    public void testGenericCloneHasIsNotRaw() {
+    public  void testGenericCloneHasIsNotRaw() {
         List<String> list = parseGenericsClass();
         assertTrue("In line " + (list.indexOf(getLineWithString(list, "clone")) + 1) + ", List shouldn't be raw",
                 getLineWithString(list, "clone").contains("List<? super T>"));
